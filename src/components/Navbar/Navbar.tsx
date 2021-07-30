@@ -2,7 +2,7 @@ import React, { Component, MouseEvent } from "react";
 import { Container } from "../../styles/Container";
 import { NavWrapper, ChooseCategoryBtn } from "./styles";
 import { ReactComponent as Logo } from "../../assets/images/a-logo.svg";
-import { ReactComponent as Currency } from "../../assets/images/dollar.svg";
+import Currency from "../Currency";
 import { CATEGORIES } from "../../types/product";
 import { connect } from "react-redux";
 import { changeCategory } from "../../store/action-creators/changeCategory";
@@ -22,7 +22,7 @@ class Navbar extends Component<NavbarComponentProps> {
 
   clickHandler(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    this.props.changeCategory(e.currentTarget.textContent as string);
+    this.props.changeCategory(e.currentTarget.id);
   }
 
   render() {
@@ -34,12 +34,14 @@ class Navbar extends Component<NavbarComponentProps> {
               <ChooseCategoryBtn
                 onClick={this.clickHandler}
                 active={this.props.currentCategory === CATEGORIES[0]}
+                id={CATEGORIES[0]}
               >
                 {CATEGORIES[0]}
               </ChooseCategoryBtn>
               <ChooseCategoryBtn
                 onClick={this.clickHandler}
                 active={this.props.currentCategory === CATEGORIES[1]}
+                id={CATEGORIES[1]}
               >
                 {CATEGORIES[1]}
               </ChooseCategoryBtn>

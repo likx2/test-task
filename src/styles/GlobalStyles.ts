@@ -8,6 +8,12 @@ export const SIZES = {
   small: "16px",
 };
 
+export const MEDIAS = {
+  s: "512px",
+  m: "720px",
+  l: "1024px",
+};
+
 const GlobalStyles = createGlobalStyle`
 * {
   margin: 0;
@@ -17,7 +23,6 @@ const GlobalStyles = createGlobalStyle`
 :root {
   --green:${COLORS.green};
   --small:${SIZES.small}
-
 }
 body {
   font-family: 'Raleway', sans-serif;

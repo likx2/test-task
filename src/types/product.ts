@@ -1,3 +1,5 @@
+import { Price } from "./price";
+
 export enum PRODUCT_ACTIONS {
   FETCH_PRODUCTS = "FETCH_PRODUCTS",
   CHANGE_CATEGORY = "CHANGE_CATEGORY",
@@ -22,11 +24,6 @@ export type ProductActionType =
   | FetchProductsAction
   | ChangeCategoryAction
   | ErrorAction;
-
-interface Price {
-  currency: string;
-  amount: number;
-}
 
 interface Attribute {
   displayValue: string;

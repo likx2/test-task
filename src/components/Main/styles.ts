@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(386px, 1fr));
   column-gap: 40px;
   row-gap: 103px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 100%;
+  }
 `;
 
 export const Title = styled.h2`

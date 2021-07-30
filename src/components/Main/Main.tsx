@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { fetchProducts } from "../../store/action-creators/fetchProducts";
 import { connect } from "react-redux";
 import { GlobalState } from "../../types/state";
-import { IProduct } from "../../types/product";
+import { IProduct, ProductState } from "../../types/product";
 import { Container } from "../../styles/Container";
 import Product from "../Product";
 import { Error, Title, Wrapper } from "./styles";
@@ -45,6 +45,7 @@ class Main extends Component<MainComponentProps> {
                 (product) => product.category === this.props.currentCategory
               )
               .map((product) => (
+                //@ts-ignore
                 <Product key={product.id} product={product} />
               ))}
           </Wrapper>
@@ -54,7 +55,7 @@ class Main extends Component<MainComponentProps> {
   }
 }
 
-const mapStateToProps = (state: GlobalState) => {
+const mapStateToProps = (state: GlobalState): ProductState => {
   return {
     products: state.product.products,
     currentCategory: state.product.currentCategory,
