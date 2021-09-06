@@ -1,16 +1,21 @@
 import { createGlobalStyle } from "styled-components";
 
 export const COLORS = {
-  green: "#5ECE7B",
+  primary: "#5ECE7B",
+  white: "#fff",
+  black: "#1D1F22",
+  error: "#e84118",
 };
 
-export const SIZES = {
-  small: "16px",
+export const FONT_SIZES = {
+  s: "16px",
+  m: "30px",
+  l: "32px",
 };
 
 export const MEDIAS = {
-  s: "512px",
-  m: "720px",
+  s: "576px",
+  m: "768px",
   l: "1024px",
 };
 
@@ -21,11 +26,18 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
 }
 :root {
-  --green:${COLORS.green};
-  --small:${SIZES.small}
+  --c-primary:${COLORS.primary};
+  --c-white:${COLORS.white};
+  --c-black:${COLORS.black};
+  --c-error:${COLORS.error};
+  --font-size-s:${FONT_SIZES.s};
+  --font-size-m:${FONT_SIZES.m};
+  --font-size-l:${FONT_SIZES.l};
+
 }
 body {
   font-family: 'Raleway', sans-serif;
+  color:var(---c-black)
 }
 
 a,input,button,textarea {

@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { fetchProducts } from "../../store/action-creators/fetchProducts";
 import { connect } from "react-redux";
 import { GlobalState } from "../../types/state";
-import { IProduct, ProductState } from "../../types/product";
+import { Product, ProductState } from "../../types/product";
 import { Container } from "../../styles/Container";
-import Product from "../Product";
+import ProductItem from "../../components/ProductItem";
 import { Error, Title, Wrapper } from "./styles";
 
 interface MainComponentProps {
-  products: IProduct[];
+  products: Product[];
   currentCategory: string;
   loading: boolean;
   fetchProducts: () => void;
@@ -45,8 +45,7 @@ class Main extends Component<MainComponentProps> {
                 (product) => product.category === this.props.currentCategory
               )
               .map((product) => (
-                //@ts-ignore
-                <Product key={product.id} product={product} />
+                <ProductItem key={product.id} product={product} />
               ))}
           </Wrapper>
         </Container>

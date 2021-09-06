@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
-import Main from "./components/Main/";
+import Main from "./pages/Main";
 import Navbar from "./components/Navbar";
 import { store } from "./store";
 import GlobalStyles from "./styles/GlobalStyles";

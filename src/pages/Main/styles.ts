@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { MEDIAS } from "../../styles/GlobalStyles";
 
 export const Wrapper = styled.div`
   display: grid;
@@ -6,7 +7,7 @@ export const Wrapper = styled.div`
   column-gap: 40px;
   row-gap: 103px;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${MEDIAS.m}) {
     grid-template-columns: 100%;
   }
 `;
@@ -22,5 +23,5 @@ export const Title = styled.h2`
 export const Error = styled.h2`
   text-align: center;
   margin: 30px 0 0;
-  color: #e84118;
+  color: var(--c-error);
 `;

@@ -1,6 +1,6 @@
 import React, { Component, MouseEvent } from "react";
 import { Container } from "../../styles/Container";
-import { NavWrapper, ChooseCategoryBtn } from "./styles";
+import { NavWrapper, ChooseCategoryBtn, RightWrapper } from "./styles";
 import { ReactComponent as Logo } from "../../assets/images/a-logo.svg";
 import Currency from "../Currency";
 import { CATEGORIES } from "../../types/product";
@@ -8,10 +8,11 @@ import { connect } from "react-redux";
 import { changeCategory } from "../../store/action-creators/changeCategory";
 import { ChangeCategoryAction } from "../../types/product";
 import { GlobalState } from "../../types/state";
+import CartOverlay from "../CartOverlay";
 
 interface NavbarComponentProps {
   currentCategory: string;
-  changeCategory: (category: string) => ChangeCategoryAction;
+  changeCurrentCategory: (category: string) => ChangeCategoryAction;
 }
 
 class Navbar extends Component<NavbarComponentProps> {
@@ -22,7 +23,7 @@ class Navbar extends Component<NavbarComponentProps> {
 
   clickHandler(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    this.props.changeCategory(e.currentTarget.id);
+    this.props.changeCurrentCategory(e.currentTarget.id);
   }
 
   render() {
@@ -47,9 +48,10 @@ class Navbar extends Component<NavbarComponentProps> {
               </ChooseCategoryBtn>
             </div>
             <Logo />
-            <div>
+            <RightWrapper>
               <Currency />
-            </div>
+              <CartOverlay />
+            </RightWrapper>
           </NavWrapper>
         </Container>
       </nav>
@@ -65,7 +67,8 @@ const mapStateToProps = (state: GlobalState) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    changeCategory: (category: string) => dispatch(changeCategory(category)),
+    changeCurrentCategory: (category: string) =>
+      dispatch(changeCategory(category)),
   };
 };
 

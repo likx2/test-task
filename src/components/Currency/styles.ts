@@ -1,6 +1,11 @@
 import styled, { keyframes } from "styled-components";
 import { ReactComponent as Icon } from "../../assets/images/vector.svg";
 
+export const Wrapper = styled.div`
+  position: relative;
+  display: inline-block;
+  margin: 0 22px 0 0;
+`;
 export const DFlex = styled.div`
   display: flex;
   align-items: center;
@@ -25,8 +30,9 @@ export const Menu = styled.div`
   transform: translateX(-40%);
   padding: 20px 40px 20px 20px;
   box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
-  background-color: #fff;
+  background-color: var(--c-white);
   animation: ${fade} linear 0.2s;
+  z-index: 1;
 
   button {
     font-size: 18px;
@@ -40,7 +46,7 @@ export const Menu = styled.div`
     }
 
     &:hover {
-      color: var(--green);
+      color: var(--c-primary);
     }
   }
 `;

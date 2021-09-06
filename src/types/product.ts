@@ -8,7 +8,7 @@ export enum PRODUCT_ACTIONS {
 
 export interface FetchProductsAction {
   type: PRODUCT_ACTIONS.FETCH_PRODUCTS;
-  payload: { products: IProduct[]; loading: boolean };
+  payload: { products: Product[]; loading: boolean };
 }
 
 export interface ChangeCategoryAction {
@@ -38,7 +38,7 @@ interface AttributeSet {
   items: [Attribute];
 }
 
-export interface IProduct {
+export interface Product {
   id: string;
   name: string;
   inStock: boolean;
@@ -51,7 +51,7 @@ export interface IProduct {
 
 export interface ProductState {
   currentCategory: string;
-  products: IProduct[];
+  products: Product[];
   loading: boolean;
   error: string;
   gallery: string[];

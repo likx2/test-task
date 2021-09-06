@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { changeCurrency } from "../../store/action-creators/changeCurrency";
 import { CURRENCIES, PriceState } from "../../types/price";
 import { GlobalState } from "../../types/state";
-import { Arrow, DFlex, Menu } from "./styles";
+import { Arrow, DFlex, Menu, Wrapper } from "./styles";
 
 class Currency extends Component<any, { isActive: boolean }> {
   state = { isActive: false };
@@ -12,7 +12,6 @@ class Currency extends Component<any, { isActive: boolean }> {
     super(props);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.changeCurrency = this.changeCurrency.bind(this);
-    // console.log(props);
   }
 
   toggleMenu(e: MouseEvent<HTMLDivElement>) {
@@ -38,7 +37,7 @@ class Currency extends Component<any, { isActive: boolean }> {
 
   render() {
     return (
-      <div style={{ position: "relative" }}>
+      <Wrapper>
         <DFlex onClick={this.toggleMenu}>
           {this.getSignOfCurrentCurrency()}
           <Arrow />
@@ -56,7 +55,7 @@ class Currency extends Component<any, { isActive: boolean }> {
             ))}
           </Menu>
         ) : null}
-      </div>
+      </Wrapper>
     );
   }
 }
